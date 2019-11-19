@@ -1,0 +1,28 @@
+version: '3'
+services:
+
+  fuel:
+    build: './app/'
+    container_name: fuel
+    # restart: always
+    depends_on:
+      - mysql
+    ports:
+      - "8000:80"
+    volumes:
+      - "./app:/var/www/html/app"
+      - "./httpd.conf:/etc/httpd/conf/httpd.conf"
+
+  mysql:
+    image: mysql:5.7
+    container_name: fuel-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql-password
+      MYSQL_DATABASE: fuel
+      MYSQL_USER: fuel
+      MYSQL_PASSWORD: mysql-password
+    ports:
+      - "33066:3306"
+    volumes:
+      - "./db/data:/var/lib/mysql"
