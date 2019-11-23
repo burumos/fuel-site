@@ -21,10 +21,10 @@
 
 return array(
 	'default' => array(
-		'connection' => array(
-			'dsn'      => 'mysql:host=localhost;dbname=fuel_prod',
-			'username' => 'fuel_app',
-			'password' => 'super_secret_password',
+    		'connection' => array(
+			'dsn'      => 'mysql:host=mysql140.phy.lolipop.lan;dbname=LAA1109720-fuel1',
+			'username' => 'LAA1109720',
+			'password' => 'nbVzmVGCs8MfEPg',
 		),
 	),
 );
