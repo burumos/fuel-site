@@ -14,10 +14,10 @@
     </div>
     <form method="post" action="/signin">
       <p>
-        user name: <input type="text" name="username" />
+        user name: <input type="text" name="username" value="<?php echo isset($username) ? $username : ''; ?>" />
       </p>
       <p>
-        email: <input type="email" name="email" />
+        email: <input type="email" name="email" value="<?php echo isset($email) ? $email : ''; ?>" />
       </p>
       <p>
         password: <input type="password" name="password" />

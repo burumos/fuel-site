@@ -39,10 +39,14 @@ return array(
 	 */
 
 	'hello(/:name)?' => array('welcome/hello', 'name' => 'hello'),
-    'test' => ['test/index', 'name' => 'test'],
+
+    '/' => ['top/index', 'name' => 'top'],
+
     'login' => ['login/index', 'name' => 'login'],
     'login/success' => ['login/success', 'name' => 'success_login'],
-    'signin' => ['login/sign_in', 'name' => 'sign_in'],
-    'signin/success' => ['login/success_sign_in', 'name' => 'success_sign_in'],
+    'signin' => ['login/sign_in', 'name' => 'signin'],
+    'signin/success' => ['login/success_sign_in', 'name' => 'success_signin'],
     'logout' => ['login/logout', 'name' => 'logout'],
+
+    'nico' => ['nico/index', 'name' => 'nico'],
 );

@@ -2,7 +2,7 @@ From centos:7
 
 RUN  yum update -y && yum install -y epel-release which git
 RUN rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm && \
-    yum install -y --enablerepo=remi-php71 php php71-php-mbstring php71-php-pdo php-pdo php71-php-mysqlnd php-mysqlnd
+    yum install -y --enablerepo=remi-php71 php php71-php-mbstring php71-php-pdo php-pdo php71-php-mysqlnd php-mysqlnd php-mbstring
 
 RUN echo 'extension=pdo_mysql.so' >> /etc/php.d/20-pdo.ini
 
@@ -15,6 +15,12 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
 
 # fuel
 RUN curl https://get.fuelphp.com/oil | sh
+
+# mail
+RUN curl -sSLO https://github.com/mailhog/mhsendmail/releases/download/v0.2.0/mhsendmail_linux_amd64 \
+    && chmod +x mhsendmail_linux_amd64 \
+    && mv mhsendmail_linux_amd64 /usr/local/bin/mhsendmail \
+    && echo 'sendmail_path = "/usr/local/bin/mhsendmail --smtp-addr=mailhog:1025"' >> /etc/php.ini
 
 # COPY myapp.sh /usr/local/bin/
 # RUN chmod 755 /usr/local/bin/myapp.sh

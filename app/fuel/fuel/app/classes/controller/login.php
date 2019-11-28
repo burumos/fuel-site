@@ -51,25 +51,33 @@ class Controller_Login extends Controller
             $password = Input::post('password');
             $email = Input::post('email');
 
-            if ($user_name && $password && $email)
+            if (!$user_name || !$password || !$email)
+            {
+                $data['messages'][] = '3つは必須';
+            }
+            else if (\Model\Users::is_email_or_username_aleready_in_use($email, $user_name))
+            {
+                $data['messages'][] = 'emailまたはuser nameがすでに使わています。';
+            }
+            else
             {
                 $result = Auth::create_user(
                     $user_name,
                     $password,
                     $email
                 );
-                if ($result) {
-                    Response::redirect('signin/success');
+                if ($result)
+                {
+                    Response::redirect(Router::get('success_signin'));
                 }
                 else
                 {
-                    $data['messages'][] = 'usernameまたはemaiが既に使われています';
+                    $data['messages'][] = 'ユーザデータ作成中にエラーが発生しました。';
                 }
             }
-            else
-            {
-                $data['messages'][] = '3つは必須';
-            }
+
+            $data['username'] = $user_name;
+            $data['email'] = $email;
         }
 
         return View::forge('login/sign_in', $data);
@@ -85,6 +93,9 @@ class Controller_Login extends Controller
     public function action_logout()
     {
         Auth::logout();
+
+        Session::set('message', 'ログアウトしました。');
+        Response::redirect(Router::get('top'));
 
         return View::forge('login/logout.php');
     }

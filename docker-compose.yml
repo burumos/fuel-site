@@ -7,6 +7,7 @@ services:
     # restart: always
     depends_on:
       - mysql
+      - mailhog
     ports:
       - "8000:80"
     volumes:
@@ -26,3 +27,9 @@ services:
       - "33066:3306"
     volumes:
       - "./db/data:/var/lib/mysql"
+
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "8025:8025"
+      - "1025:1025"

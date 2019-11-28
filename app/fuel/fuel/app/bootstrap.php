@@ -33,3 +33,7 @@ Fuel::$env = Arr::get($_SERVER, 'FUEL_ENV', Arr::get($_ENV, 'FUEL_ENV', getenv('
 
 // Initialize the framework with the config file.
 \Fuel::init('config.php');
+
+// 定数をロード
+require(APPPATH.'config/constants.php');
+
