@@ -1,9 +1,9 @@
 <?php
 
-class Controller_Top extends Controller
+class Controller_Common extends Controller
 {
 
-    public function action_index()
+    public function action_top()
     {
         $data = [];
         if (Auth::check())
@@ -15,6 +15,11 @@ class Controller_Top extends Controller
         Session::delete('message');
 
         return View::forge('top', $data);
+    }
+
+    public function action_404()
+    {
+        return View::forge('404');
     }
 
 }

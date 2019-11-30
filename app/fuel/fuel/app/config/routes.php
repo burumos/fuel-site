@@ -18,7 +18,7 @@ return array(
 	 *
 	 */
 
-	'_root_' => 'top/index',
+	'_root_' => 'common/top',
 
 	/**
 	 * -------------------------------------------------------------------------
@@ -27,7 +27,7 @@ return array(
 	 *
 	 */
 
-	'_404_' => 'welcome/404',
+	'_404_' => 'common/404',
 
 	/**
 	 * -------------------------------------------------------------------------
@@ -38,9 +38,8 @@ return array(
 	 *
 	 */
 
-	'hello(/:name)?' => array('welcome/hello', 'name' => 'hello'),
-
-    '/' => ['top/index', 'name' => 'top'],
+    '/' => ['common/top', 'name' => 'top'],
+    'notfound' => ['common/404', 'name' => '404'],
 
     'login' => ['login/index', 'name' => 'login'],
     'login/success' => ['login/success', 'name' => 'success_login'],
@@ -49,4 +48,7 @@ return array(
     'logout' => ['login/logout', 'name' => 'logout'],
 
     'nico' => ['nico/index', 'name' => 'nico'],
+    'nico/mylist' => ['nico/mylist', 'name' => 'nico_mylist'],
+    'nico/register' => ['nico/register', 'name' => 'nico_mylist_register'],
+
 );

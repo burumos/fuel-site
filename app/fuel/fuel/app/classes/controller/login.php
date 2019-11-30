@@ -12,8 +12,9 @@ class Controller_Login extends Controller
         {
             if (Auth::login())
             {
-                // 認証情報は OK 、ただちに下記へ
-                Response::redirect('login/success');
+                // 認証情報は OK
+                Session::set('message', 'ログインしました');
+                Response::redirect(Router::get('top'));
             }
             else
             {

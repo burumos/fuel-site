@@ -1,0 +1,22 @@
+{
+  "name": "fuel",
+  "version": "1.0.0",
+  "description": "* Version: 1.8.2 * [Website](https://fuelphp.com/) * [Release Documentation](https://fuelphp.com/docs) * [Release API browser](https://fuelphp.com/api) * [Development branch Documentation](https://fuelphp.com/dev-docs) * [Development branch API browser](https://fuelphp.com/dev-api) * [Support Forum](https://forums.fuelphp.com) for comments, discussion and community support",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "nico": "parcel watch js-src/nico/index.js --no-source-maps --no-cache -d public/js/nico/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-redux": "^7.1.3",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0"
+  }
+}

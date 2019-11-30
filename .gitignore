@@ -1,3 +1,4 @@
 db/*
 app/fuel/composer.phar
 app/fuel/oil
+app/fuel/node_modules
